@@ -29,4 +29,9 @@ public class UserController {
     public ResponseTemplateVO findUserWithDepartment(@PathVariable("id") Long userId) {
         return userService.findUserWithDepartment(userId);
     }
+
+    @GetMapping("/getWithDepartmentAndAddress/{id}")
+    public ResponseTemplateVO findUserWithDepartmentAndAddress(@PathVariable("id") Long userId) {
+        return userService.findUserWithDepartmentAndAddress(userId);
+    }
 }

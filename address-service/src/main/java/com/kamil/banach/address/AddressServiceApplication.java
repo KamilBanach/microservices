@@ -1,4 +1,4 @@
-package com.kamil.banach.address.address.service;
+package com.kamil.banach.address;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

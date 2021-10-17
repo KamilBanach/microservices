@@ -1,4 +1,4 @@
-package com.kamil.banach.address.address.service;
+package com.kamil.banach.address.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
