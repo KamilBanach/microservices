@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: API-GATEWAAY
+    name: API-GATEWAY
   cloud:
     gateway:
       routes:
@@ -19,7 +19,7 @@ spring:
         - id: DEPARTMENT-SERVICE
           uri: lb://DEPARTMENT-SERVICE
           predicates:
-              - Path=/departments/**
+            - Path=/departments/**
           filters:
             - name: CircuitBreaker
               args:
@@ -28,7 +28,7 @@ spring:
         - id: ADDRESS-SERVICE
           uri: lb://ADDRESS-SERVICE
           predicates:
-              - Path=/address/**
+            - Path=/address/**
           filters:
             - name: CircuitBreaker
               args:
@@ -44,6 +44,13 @@ hystrix:
             timeoutInMilliseconds: 4000
 
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+
 eureka:
   client:
     register-with-eureka: true
@@ -52,8 +59,3 @@ eureka:
       defaultZone: http://localhost:8761/eureka
   instance:
     hostname: localhost
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hustrix.stream
