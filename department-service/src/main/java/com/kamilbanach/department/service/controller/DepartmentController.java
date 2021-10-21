@@ -5,6 +5,7 @@ import com.kamilbanach.department.service.service.DepartmentService;
 import com.kamilbanach.department.service.vo.DepartmentWithAddressVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -18,6 +19,7 @@ public class DepartmentController {
     @PostMapping("/")
     public Department saveDepartment(@RequestBody Department department) {
         log.info("Inside saveDepartment method of DepartmentController");
+        ResponseEntity.created()
         return departmentService.saveDepartment(department);
     }
 

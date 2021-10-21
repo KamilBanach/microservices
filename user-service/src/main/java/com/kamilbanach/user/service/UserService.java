@@ -37,6 +37,7 @@ public class UserService {
     }
 
     public ResponseTemplateVO findUserWithDepartment(Long userId) {
+        log.info("Inside findUserWithDepartment method of UserService");
         User user = userRepository.findByUserId(userId);
         return ResponseTemplateVO.builder()
                 .user(user)
@@ -45,6 +46,7 @@ public class UserService {
     }
 
     public ResponseTemplateVO findUserWithDepartmentAndAddress(Long userId) {
+        log.info("Inside findUserWithDepartmentAndAddress method of UserService");
         User user = userRepository.findByUserId(userId);
         ResponseEntity<List<Address>> addressResponse = restTemplate.exchange(
                 "http://ADDRESS-SERVICE/address/byUser/" + userId,
